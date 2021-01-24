@@ -1,0 +1,22 @@
+.errorPageContainer {
+    min-height: calc(100vh - 46.4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.errorPageContent {
+    text-align: center;
+    letter-spacing: 0.6px;
+}
+
+.errorPageHeading {
+    font-weight: 700;
+    color: #FF0000;
+    font-size: 45px;
+    margin-bottom: 20px;
+}
+
+.errorPageSubheading {
+    font-weight: 500;
+}

@@ -1,0 +1,15 @@
+.navigationContainer {
+    display: flex;
+    justify-content: space-between;
+    background: #a7a5a5;
+    padding: 10px 20px;
+}
+
+.navigationLink {
+    color: #ffffff;
+    font-size: 18px;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
