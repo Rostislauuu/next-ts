@@ -4,7 +4,7 @@ import Head from "next/head";
 import styles from "../styles/components/layout.module.scss";
 
 interface LayoutProps {
-    title?: string;
+    title: string;
     children: React.ReactNode;
 };
 
