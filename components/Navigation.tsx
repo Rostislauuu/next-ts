@@ -8,20 +8,20 @@ export default function Navigation() {
             <Link href="/">
                 <a className={styles.navigationLink}>Home</a>
             </Link>
-            <Link href="/about">
-                <a className={styles.navigationLink}>First</a>
+            <Link href="/posts">
+                <a className={styles.navigationLink}>Posts</a>
             </Link>
-            <Link href="/about">
-                <a className={styles.navigationLink}>Second</a>
+            <Link href="/albums">
+                <a className={styles.navigationLink}>Albums</a>
             </Link>
-            <Link href="/about">
-                <a className={styles.navigationLink}>Third</a>
+            <Link href="/photos">
+                <a className={styles.navigationLink}>Photos</a>
             </Link>
-            <Link href="/about">
-                <a className={styles.navigationLink}>Fifth</a>
+            <Link href="/todos">
+                <a className={styles.navigationLink}>Todos</a>
             </Link>
-            <Link href="/about">
-                <a className={styles.navigationLink}>Sixth</a>
+            <Link href="/users">
+                <a className={styles.navigationLink}>Users</a>
             </Link>
         </nav>
     )
