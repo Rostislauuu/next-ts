@@ -11,12 +11,6 @@ export default function Navigation() {
             <Link href="/posts">
                 <a className={styles.navigationLink}>Posts</a>
             </Link>
-            <Link href="/albums">
-                <a className={styles.navigationLink}>Albums</a>
-            </Link>
-            <Link href="/photos">
-                <a className={styles.navigationLink}>Photos</a>
-            </Link>
             <Link href="/todos">
                 <a className={styles.navigationLink}>Todos</a>
             </Link>

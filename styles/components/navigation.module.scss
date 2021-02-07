@@ -1,6 +1,5 @@
 .navigationContainer {
     display: flex;
-    justify-content: space-between;
     background: #a7a5a5;
     padding: 10px 20px;
 }
@@ -12,4 +11,8 @@
     &:hover {
         text-decoration: underline;
     }
+}
+
+.navigationLink:not(:first-child) {
+    margin-left: 75px;
 }
