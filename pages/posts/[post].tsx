@@ -30,7 +30,7 @@ const SinglePost: React.FunctionComponent<PostProps> = ({ post, comments }) => {
                     <div>
                         {comments.map(comment => {
                             return (
-                                <div className={styles.commentContainer}>
+                                <div className={styles.commentContainer} key={comment.id}>
                                     <div className={styles.commentInfo}>
                                         <div className={styles.userDetails}>
                                             <div className={styles.commentUserLogo} />
@@ -60,7 +60,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
 
     const postComments: Comment[] = commentsData.filter(item => item.postId === Number(query.post));
 
-    if (Object.keys(postData).length === 0) {
+    if (!Object.keys(postData).length) {
         return {
           notFound: true,
         }

@@ -36,7 +36,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
   const response = await fetch("https://jsonplaceholder.typicode.com/posts/");
   const data: Post[] = await response.json();
 
-  if (Object.keys(data).length === 0) {
+  if (!Object.keys(data).length) {
     return {
       notFound: true,
     }

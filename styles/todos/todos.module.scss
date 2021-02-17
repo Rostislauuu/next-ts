@@ -1,0 +1,43 @@
+.todosContainer {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.todosItem {
+    width: 24%;
+    box-shadow: 1px 1px 1px 1px #7c7a7a;
+    border: 1px solid #e0dddd;
+    border-radius: 4px;
+    padding: 15px;
+    margin: 10px 0;
+}
+
+.topInfo {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-bottom: 8px;
+}
+
+.titleContainer {
+    width: 80%;
+}
+
+.todosTitle {
+    &:hover {
+        text-decoration: underline;
+        cursor: pointer;
+    }
+}
+
+.todosChackbox {
+    width: 15%;
+    position: absolute;
+    right: 0;
+    top: 7px;
+}
+
+.todosUser {
+    margin-top: 5px;
+}
