@@ -36,7 +36,7 @@ const Todos: React.FunctionComponent<TodosProps> = ({ todos, users }) => {
                     const userTodo: UserInterface | undefined = users.find(user => user.id === todo.userId);
 
                     return (
-                        <div key={todo.id} className={styles.todosItem}>
+                        <div key={todo.id} className={`${styles.todosItem} card`}>
                             <div className={styles.topInfo}>
                                 <p className={styles.titleContainer}>
                                     <span
@@ -70,7 +70,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
     const usersResponse = await fetch("https://jsonplaceholder.typicode.com/users");
     const usersData: UserInterface[] =  await usersResponse.json();
 
-    if (!Object.keys(todosResponse).length) {
+    if (!todosData.length) {
         return {
           notFound: true,
         }

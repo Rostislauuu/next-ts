@@ -1,0 +1,41 @@
+// Users List
+
+.usersContainer {
+    display: flex;
+    flex-wrap: wrap;
+};
+
+.userContainer {
+    width: 23%;
+    margin: 0 15px 25px 0;
+    padding: 15px;
+}
+
+.userInfoContainer {
+    font-size: 12px;
+}
+
+.userDetail {
+    color: #a09e9e;
+    margin-left: 5px;
+    font-size: 14px;
+}
+
+.userLink {
+    color: #ff5e78;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+// Single user page
+
+.singleUserContainer {
+    margin: 0 15px 25px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.singleUserBlock {
+    width: 32%;
+    margin: 10px 25px;
+}
