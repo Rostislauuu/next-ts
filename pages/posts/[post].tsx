@@ -19,7 +19,7 @@ const SinglePost: React.FunctionComponent<PostProps> = ({ post, comments }) => {
             <div className={styles.singlePostContainer}>
                 <h2 className={styles.singlePostHeading}>Post</h2>
 
-                <div className={styles.singlePostContent}>
+                <div className={`${styles.singlePostContent} card`}>
                     <p className={styles.postTitle}>{post.title}</p>
                     <p className={styles.postContent}>{post.body}</p>
                 </div>
@@ -30,7 +30,7 @@ const SinglePost: React.FunctionComponent<PostProps> = ({ post, comments }) => {
                     <div>
                         {comments.map(comment => {
                             return (
-                                <div className={styles.commentContainer} key={comment.id}>
+                                <div className={`${styles.commentContainer} card`} key={comment.id}>
                                     <div className={styles.commentInfo}>
                                         <div className={styles.userDetails}>
                                             <div className={styles.commentUserLogo} />

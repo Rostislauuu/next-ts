@@ -18,7 +18,7 @@ const Posts: React.FunctionComponent<PostsProps> = ({ posts }) => {
             <div className={styles.postsContainer}>
                 {posts.map(post => {
                     return (
-                        <div key={post.id} className={styles.post}>
+                        <div key={post.id} className={`${styles.post} card`}>
                             <p className={styles.postTitle}>{post.title}</p>
                             <p className={styles.postContent}>{post.body}</p>
                             <Link href={`/posts/${post.id}`}>
@@ -33,10 +33,10 @@ const Posts: React.FunctionComponent<PostsProps> = ({ posts }) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const response = await fetch("https://jsonplaceholder.typicode.com/posts/");
-  const data: Post[] = await response.json();
+  const postsResponse = await fetch("https://jsonplaceholder.typicode.com/posts/");
+  const postsData: Post[] = await postsResponse.json();
 
-  if (!Object.keys(data).length) {
+  if (!postsData.length) {
     return {
       notFound: true,
     }
@@ -44,7 +44,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
   return {
       props: {
-          posts: data
+          posts: postsData
       }
   }
 };

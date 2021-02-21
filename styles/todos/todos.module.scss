@@ -6,9 +6,6 @@
 
 .todosItem {
     width: 24%;
-    box-shadow: 1px 1px 1px 1px #7c7a7a;
-    border: 1px solid #e0dddd;
-    border-radius: 4px;
     padding: 15px;
     margin: 10px 0;
 }
@@ -26,7 +23,7 @@
 
 .todosTitle {
     &:hover {
-        text-decoration: underline;
+        text-decoration: line-through;
         cursor: pointer;
     }
 }
