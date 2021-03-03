@@ -2,7 +2,7 @@ import Layout from "../components/Layout";
 
 import styles from "../styles/home-page/home-page.module.scss";
 
-export default function Home() {
+const Home = () => {
   return (
     <Layout title="Home">
       <div className={styles.homePageContainer}>
@@ -13,3 +13,5 @@ export default function Home() {
     </Layout>
   )
 }
+
+export default Home;
