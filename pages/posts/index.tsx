@@ -1,6 +1,8 @@
 import React from "react";
 import { GetServerSideProps } from "next";
 import Link from "next/link";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 
 import Layout from "../../components/Layout";
 
@@ -13,6 +15,8 @@ interface PostsProps {
 }
 
 const Posts: React.FunctionComponent<PostsProps> = ({ posts }) => {
+    const { t } = useTranslation("common");
+    
     return (
         <Layout title="Posts">
             <div className={styles.postsContainer}>
@@ -22,7 +26,7 @@ const Posts: React.FunctionComponent<PostsProps> = ({ posts }) => {
                             <p className={styles.postTitle}>{post.title}</p>
                             <p className={styles.postContent}>{post.body}</p>
                             <Link href={`/posts/${post.id}`}>
-                                <a className={styles.readMoreLink}>Read More</a>
+                                <a className={styles.readMoreLink}>{t("read-more")}</a>
                             </Link>
                         </div>
                     )
@@ -32,7 +36,7 @@ const Posts: React.FunctionComponent<PostsProps> = ({ posts }) => {
     )
 };
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
   const postsResponse = await fetch("https://jsonplaceholder.typicode.com/posts/");
   const postsData: Post[] = await postsResponse.json();
 
@@ -44,6 +48,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
   return {
       props: {
+        ...await serverSideTranslations(locale, ['common']),
           posts: postsData
       }
   }
