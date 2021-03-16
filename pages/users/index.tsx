@@ -1,6 +1,8 @@
 import React from "react";
 import { GetServerSideProps } from "next";
 import Link from "next/link";
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 import Layout from "../../components/Layout";
 import UserDetailRow from "../../components/UserDetailRow";
@@ -14,6 +16,8 @@ interface UsersProps {
 }
 
 const UsersList: React.FunctionComponent<UsersProps> =  ({ users }) => {
+    const { t } = useTranslation("common");
+
     return (
         <Layout title="Users">
             <div className={styles.usersContainer}>
@@ -30,7 +34,7 @@ const UsersList: React.FunctionComponent<UsersProps> =  ({ users }) => {
                              />
                             <p className={styles.userLink}>
                                 <Link href={`/users/${user.id}`}>
-                                    <a>More details</a>
+                                    <a>{t("more-details")}</a>
                                 </Link>
                             </p>
                         </div>
@@ -41,7 +45,7 @@ const UsersList: React.FunctionComponent<UsersProps> =  ({ users }) => {
     )
 };
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
     const usersResponse = await fetch("https://jsonplaceholder.typicode.com/users");
     const usersData: UserInterface[] = await usersResponse.json();
 
@@ -53,6 +57,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
     return {
         props: {
+            ...await serverSideTranslations(locale, ['common']),
             users: usersData
         }
     }

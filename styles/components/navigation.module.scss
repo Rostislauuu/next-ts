@@ -1,7 +1,12 @@
-.navigationContainer {
+.headerContainer {
     display: flex;
+    justify-content: space-between;
     background: #a7a5a5;
     padding: 10px 20px;
+}
+
+.navigationContainer {
+    display: flex;
 }
 
 .navigationLink {
@@ -15,4 +20,20 @@
 
 .navigationLink:not(:first-child) {
     margin-left: 75px;
+}
+
+.languageSwitcher {
+    background-color: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 4px;
+
+    &:hover {
+        color: #a7a5a5;
+        background-color: #ffffff;
+    }
 }

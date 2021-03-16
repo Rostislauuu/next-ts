@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { GetServerSideProps } from "next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 import Layout from "../../components/Layout";
 
@@ -63,7 +64,7 @@ const Todos: React.FunctionComponent<TodosProps> = ({ todos, users }) => {
     )
 };
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
     const todosResponse = await fetch("https://jsonplaceholder.typicode.com/todos");
     const todosData: TodosInterface[] = await todosResponse.json();
 
@@ -78,6 +79,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
     return {
         props: {
+            ...await serverSideTranslations(locale, ['common']),
             todos: todosData,
             users: usersData
         }
